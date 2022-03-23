@@ -29,8 +29,7 @@ def sold_houses():
     property_address_list = []
     property_price_list = []
     property_sell_date = []
-    for dict in main_dict:
-        print(dict)
+   
 
     for dict in main_dict:
         
