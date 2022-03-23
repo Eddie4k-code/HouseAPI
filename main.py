@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import plotly.express as px
 
 df = pd.DataFrame
 
@@ -51,6 +52,13 @@ def sold_houses():
     df.insert(loc=2, column='Address', value=property_address_list)
     df.insert(loc=3, column='Price', value=property_price_list)
     df.insert(loc=4, column='Sold Date', value=property_sell_date)
+    
+    
+    houses_types = df['Property_Type'].value_counts()
+    #Graph the property type counts 
+    fig = px.pie(labels=houses_types.index, values=houses_types.values, title='Property Type Associated with Prices', names=houses_types.index)
+    fig.update_traces(textposition='outside', textinfo='percent+label')
+    fig.show()
     
     
 
